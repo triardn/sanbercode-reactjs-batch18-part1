@@ -72,13 +72,13 @@ class Clock {
     render() {
       const date = new Date();
   
-      const hours = date.getHours();
+      let hours = date.getHours();
       if (hours < 10) hours = '0' + hours;
   
-      const mins = date.getMinutes();
+      let mins = date.getMinutes();
       if (mins < 10) mins = '0' + mins;
   
-      const secs = date.getSeconds();
+      let secs = date.getSeconds();
       if (secs < 10) secs = '0' + secs;
   
       const output = this.template
