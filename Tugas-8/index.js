@@ -11,13 +11,17 @@ var books = [
 // soal 1
 let time = 10000;
 let index = 0;
+let runningOutOfTime = false;
 
 const callback = function (spareTime) {
-    time = spareTime;
     index++;
 
-    if (index < books.length) {
-        readBooks(time, books[index], callback);
+    if (index < books.length && !runningOutOfTime && spareTime > 0) { // handling if there are more books but time = 0
+        if (spareTime < books[index].timeSpent) {
+            runningOutOfTime = true;    
+        }
+
+        readBooks(spareTime, books[index], callback);
     }
 }
 
